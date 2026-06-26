@@ -1,24 +1,28 @@
 <script setup>
 import { ref, KeepAlive } from 'vue'
 import { RouterView } from 'vue-router'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 //https://vuetifyjs.com/en/components/grids/#usage
 //https://vuetifyjs.com/en/styles/text-and-typography/#usage
 const mostrar = ref(false)
 
 const navItems = [
-  { text: "Home", to: "/", icon: "mdi-home" },
-  { text: "Tienda", to: "/store", icon: "mdi-store" },
-  { text: "Favoritos", to: "/favorito", icon: "mdi-heart" },
-  { text: "Contacto", to: "/contact", icon: "mdi-email" }
+  { text: 'Home', to: '/', icon: 'mdi-home' },
+  { text: 'Tienda', to: '/store', icon: 'mdi-store' },
+  { text: 'Favoritos', to: '/favorito', icon: 'mdi-heart' },
+  { text: 'Contacto', to: '/contact', icon: 'mdi-email' },
 ]
-
 </script>
 
 <template>
+  <SpeedInsights />
   <v-app>
     <v-app-bar :elevation="2" rounded>
       <template v-slot:prepend>
-        <v-app-bar-nav-icon class="d-sm-flex d-md-none" @click.stop="mostrar = !mostrar"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon
+          class="d-sm-flex d-md-none"
+          @click.stop="mostrar = !mostrar"
+        ></v-app-bar-nav-icon>
         Tienda
       </template>
       <template class="d-sm-none d-md-flex">
@@ -30,8 +34,13 @@ const navItems = [
     </v-app-bar>
     <v-navigation-drawer class="d-sm-flex d-md-none" v-model="mostrar" temporary>
       <v-divider></v-divider>
-      <v-list-item v-for="item in navItems" :to="item.to" link :title="item.text"
-        :prepend-icon="item.icon"></v-list-item>
+      <v-list-item
+        v-for="item in navItems"
+        :to="item.to"
+        link
+        :title="item.text"
+        :prepend-icon="item.icon"
+      ></v-list-item>
     </v-navigation-drawer>
     <v-main>
       <router-view v-slot="{ Component }">
