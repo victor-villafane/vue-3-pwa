@@ -6,7 +6,7 @@ import { RouterView } from 'vue-router'
 const mostrar = ref(false)
 
 const navItems = [
-  { text: "Inicio", to: "/", icon: "mdi-home" },
+  { text: "Home", to: "/", icon: "mdi-home" },
   { text: "Tienda", to: "/store", icon: "mdi-store" },
   { text: "Favoritos", to: "/favorito", icon: "mdi-heart" },
   { text: "Contacto", to: "/contact", icon: "mdi-email" }
